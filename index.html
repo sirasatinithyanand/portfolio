@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nithyananda Rao — AI Developer &amp; Backend Engineer</title>
+<meta name="description" content="Nithyananda Rao is an AI Developer and backend engineer in Sydney, building LLM pipelines, agentic workflows, and production backend systems.">
+<meta name="theme-color" content="#0a0f14">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nithyananda Rao — AI Developer & Backend Engineer">
+<meta property="og:description" content="I build AI systems that actually work in production — LLM pipelines, agentic workflows, and the backend infrastructure to make them scale.">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="Nithyananda Rao, home">NR<span class="logo-dot">.</span></a>
+
+    <nav class="nav" id="site-nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero wrap" id="hero">
+    <div class="hero-copy">
+      <p class="hero-kicker">Sydney, Australia · Open to new problems</p>
+      <h1>AI Developer &amp; Backend Engineer<br>building systems that ship.</h1>
+      <p class="hero-sub">I build AI systems that actually work in production — LLM pipelines, agentic workflows, and the backend infrastructure to make them scale.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View projects</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="code-card">
+        <div class="code-card-bar">
+          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+          <span class="code-card-title">agent.py</span>
+        </div>
+        <pre class="code-card-body"><code><span class="tok-kw">class</span> <span class="tok-cls">RiskAgent</span>:
+    <span class="tok-kw">def</span> <span class="tok-fn">assess</span>(<span class="tok-var">self</span>, venue):
+        facts = self.retrieve(venue)
+        risk = self.llm.reason(facts)
+        <span class="tok-kw">return</span> Narrative(
+            score=risk.score,
+            citations=facts.sources,
+        )
+
+<span class="tok-cmt"># 5s → regulator-ready narrative</span>
+<span class="tok-prompt">$</span> agent.assess(<span class="tok-str">"venue_442"</span>)
+<span class="tok-out">✓ narrative generated · 4.8s</span></code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap about-grid">
+      <div class="section-head">
+        <h2>About</h2>
+      </div>
+      <div class="about-body">
+        <p>I'm Nithya — an AI Developer and backend engineer currently working at <strong>Arctic Intelligence</strong> in Sydney, building AI-powered tools for financial crime compliance. I'm also pursuing a Master of Information Technology (AI specialisation) at UNSW Sydney, graduating December 2027.</p>
+        <p>Before this, I spent close to two years building and shipping AI systems in production across two startups — a US-based cybersecurity SaaS (<strong>ConnectSecure</strong>) and a fintech startup (<strong>ChangeJar Technologies</strong>). I've worked on everything from LLM-powered reporting platforms and embedding-based search systems to high-throughput APIs and compliance automation pipelines.</p>
+        <p>I enjoy the end-to-end stuff — not just the model, but the APIs, the pipelines, the deployment, and making it actually work for real users. I care about building things that are reliable, scalable, and genuinely useful.</p>
+        <p>Outside of work, I'm the <strong>Projects Director at the UNSW AI Society</strong>, leading student AI projects across reinforcement learning and AI-powered 3D mapping. I also coached teams at a $1,500/person enterprise AI hackathon run in collaboration with NVIDIA, Anthropic, and LangChain.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section section-alt" id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Experience</h2>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date">Aug 2026 — Present</span>
+          </div>
+          <div class="timeline-content">
+            <h3>AI Developer <span class="timeline-org">— Arctic Intelligence</span></h3>
+            <p class="timeline-sub">Financial Crimes Consulting Pty Ltd · Sydney, Australia</p>
+            <ul>
+              <li>Building AI-powered features for the platform's next-generation product, working directly with the AI Development Lead</li>
+              <li>Designing LLM workflows for compliance automation, risk narrative generation, and knowledge retrieval</li>
+              <li>Working across the full stack — Python backend, API integrations, and AI pipeline infrastructure</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date">Aug 2024 — Jan 2026</span>
+          </div>
+          <div class="timeline-content">
+            <h3>Software Development Engineer <span class="timeline-org">— ConnectSecure</span></h3>
+            <p class="timeline-sub">US-based cybersecurity SaaS · Remote</p>
+            <ul>
+              <li>Designed and delivered the company's first AI-powered reporting platform — an async LLM pipeline with structured output validation, reducing onboarding effort by 40%</li>
+              <li>Built an embedding-based database migration tool with semantic search across heterogeneous schemas, cutting manual mapping effort by 70% at enterprise scale</li>
+              <li>Engineered an automated compliance analysis pipeline using LLM-based insight generation, cutting analyst reporting time by 50–60%</li>
+              <li>Designed and maintained secure multi-tenant REST APIs deployed at scale, supporting live enterprise deployments</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date">Mar 2024 — Jul 2024</span>
+          </div>
+          <div class="timeline-content">
+            <h3>Backend Development Intern <span class="timeline-org">— ChangeJar Technologies</span></h3>
+            <p class="timeline-sub">Fintech startup · Bengaluru, India</p>
+            <ul>
+              <li>Shipped a referral backend system that increased user acquisition by 30% and cut acquisition cost by 50%</li>
+              <li>Built analytics-driven backend services and internal automation tools for payout tracking</li>
+              <li>Improved user retention by 25% through optimised onboarding backend features</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects</h2>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="project-card project-card-feature">
+          <div class="project-body">
+            <h3>AML Risk Intelligence Agent</h3>
+            <p>Built an end-to-end agentic AI system for AML compliance risk assessment in a single day, after seeing Arctic Intelligence's CEO post about a new product module on LinkedIn. Sent the demo directly to the CEO — it led to a job offer.</p>
+            <ul class="project-points">
+              <li>Agent retrieves structured venue risk data and reasons over it via LLM tool-calling</li>
+              <li>Auto-generates regulator-ready AML compliance narratives in under 5 seconds</li>
+              <li>RAG-based natural language query interface with citation-grounded answers</li>
+            </ul>
+          </div>
+          <div class="project-foot">
+            <ul class="tag-list">
+              <li>Python</li><li>FastAPI</li><li>LangChain</li><li>Groq API</li><li>React</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-body">
+            <h3>FinAgent <span class="project-sub">— NVIDIA Agentic AI Hackathon</span></h3>
+            <p>Built at the Cognitivo × NVIDIA Mockathon (Stone &amp; Chalk, Sydney) — run in collaboration with NVIDIA, Anthropic, and LangChain for 40 enterprise engineers.</p>
+            <ul class="project-points">
+              <li>Evidence-grounded financial market strategy agent using LangGraph</li>
+              <li>Agent-vs-agent format — competed in a round-robin evaluation</li>
+              <li>Built on NVIDIA Gigabyte AI Top Atom hardware</li>
+            </ul>
+          </div>
+          <div class="project-foot">
+            <ul class="tag-list">
+              <li>Python</li><li>LangGraph</li><li>FastAPI</li><li>NVIDIA NeMo</li>
+            </ul>
+            <a class="project-link" href="https://github.com/sirasatinithyanand/cognitivo-mockathon-finagent" target="_blank" rel="noopener">Repo ↗</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-body">
+            <h3>AI Data Copilot <span class="project-sub">— Natural Language Query Engine</span></h3>
+            <p>An agentic system that translates natural language into SQL across 100+ table schemas.</p>
+            <ul class="project-points">
+              <li>Embedding-based semantic table retrieval with confidence-scored column mapping</li>
+              <li>Agent reasons over schema ambiguity and generates production-ready SQL</li>
+              <li>Structured fallback logic for out-of-scope queries</li>
+            </ul>
+          </div>
+          <div class="project-foot">
+            <ul class="tag-list">
+              <li>Python</li><li>FastAPI</li><li>LangChain</li><li>Vector DB</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-body">
+            <h3>TeachMap <span class="project-sub">— AI Curriculum Builder</span></h3>
+            <p>Full-stack AI platform with live web scraping via Gemini and Google Search, real-time adaptive feedback for lecture content, and an interactive world map of university curricula.</p>
+            <ul class="project-points">
+              <li>Owned end-to-end architecture and deployment</li>
+              <li>Real-time data pipelines feeding an interactive global visualisation</li>
+            </ul>
+          </div>
+          <div class="project-foot">
+            <ul class="tag-list">
+              <li>Next.js 14</li><li>TypeScript</li><li>FastAPI</li><li>Gemini</li><li>Supabase</li><li>Mapbox GL JS</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-body">
+            <h3>LoadForge <span class="project-sub">— Backend Performance Testing Platform</span></h3>
+            <p>A multi-tenant SaaS backend simulation with 225,000+ rows across 5 tenants, built to benchmark query performance under production load.</p>
+            <ul class="project-points">
+              <li>Optimised query execution from seconds to milliseconds through layered indexing, query plan analysis, and schema redesign</li>
+            </ul>
+          </div>
+          <div class="project-foot">
+            <ul class="tag-list">
+              <li>Python</li><li>PostgreSQL</li><li>Multi-tenant</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-body">
+            <h3>Backend Transaction System</h3>
+            <p>A production backend with authentication, RBAC, REST APIs, rate limiting, and financial reporting — designed for correctness and resilience under concurrent load.</p>
+          </div>
+          <div class="project-foot">
+            <ul class="tag-list">
+              <li>Java</li><li>Spring Boot</li><li>MongoDB</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section section-alt" id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Skills</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>AI &amp; Generative AI</h3>
+          <ul class="tag-list tag-list-mono">
+            <li>LLM APIs</li><li>OpenAI</li><li>Claude</li><li>Gemini</li><li>Groq</li>
+            <li>LangChain</li><li>LangGraph</li><li>RAG</li><li>Embedding Search</li>
+            <li>Agentic Workflows</li><li>Tool Calling</li><li>FAISS</li><li>Pinecone</li>
+            <li>Prompt Engineering</li><li>MCP</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Backend &amp; Systems</h3>
+          <ul class="tag-list tag-list-mono">
+            <li>Python</li><li>Java</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>C++</li>
+            <li>FastAPI</li><li>Spring Boot</li><li>REST APIs</li>
+            <li>Async Processing</li><li>Microservices</li><li>System Design</li><li>Distributed Systems</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Databases</h3>
+          <ul class="tag-list tag-list-mono">
+            <li>PostgreSQL</li><li>MongoDB</li><li>Supabase</li>
+            <li>Query Optimisation</li><li>Indexing</li><li>Schema Design</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Infrastructure &amp; Frontend</h3>
+          <ul class="tag-list tag-list-mono">
+            <li>Docker</li><li>Git</li><li>CI/CD</li><li>Linux</li><li>Jenkins</li>
+            <li>Next.js 14</li><li>React</li><li>Tailwind CSS</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION + LEADERSHIP -->
+  <section class="section" id="education">
+    <div class="wrap education-grid">
+      <div class="section-head">
+        <h2>Education</h2>
+      </div>
+
+      <div class="education-body">
+        <div class="edu-item">
+          <div class="edu-head">
+            <h3>Master of Information Technology <span class="project-sub">(Artificial Intelligence)</span></h3>
+            <span class="edu-date">Feb 2026 — Dec 2027</span>
+          </div>
+          <p class="timeline-sub">University of New South Wales (UNSW), Sydney</p>
+          <ul>
+            <li>Projects Director, UNSW Artificial Intelligence Society — leading student AI projects across reinforcement learning and AI-powered 3D campus mapping</li>
+            <li>Relevant coursework: AI, Data Structures &amp; Algorithms, Computer Networks, Database Management Systems</li>
+          </ul>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-head">
+            <h3>B.Tech — Electronics and Communication Engineering</h3>
+            <span class="edu-date">Jan 2020 — Dec 2024</span>
+          </div>
+          <p class="timeline-sub">PES University, Bengaluru, India · CGPA 7.44/10</p>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-head">
+            <h3>Hackathon Coach &amp; Organiser <span class="project-sub">— Cognitivo × NVIDIA AI Hackathon</span></h3>
+            <span class="edu-date">Jul 2026</span>
+          </div>
+          <p>Invited by Cognitivo founder Alan Hsiao to help organise and coach a 3-day enterprise AI training and hackathon ($1,500/person, 40 attendees). Designed the Day 1 training task on agentic AI and API integration, alongside trainers from NVIDIA, Anthropic, and LangChain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section-contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Let's build something worth shipping.</h2>
+      <p class="contact-sub">Open to coffee chats, collaborations, and interesting problems in AI and backend engineering.</p>
+
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:sirasatinithyanand@gmail.com">sirasatinithyanand@gmail.com</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/nithyananda-rao-96b572216" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/sirasatinithyanand" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+
+      <div class="github-graph">
+        <img src="https://ghchart.rshah.org/2dd4bf/sirasatinithyanand" alt="Nithyananda Rao's GitHub contribution activity" loading="lazy" width="721" height="112">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>© <span id="year">2026</span> Nithyananda Rao. Built with plain HTML, CSS &amp; JS — hosted on GitHub Pages.</p>
+    <a href="#top" class="back-to-top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

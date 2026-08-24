@@ -1,0 +1,9 @@
+# Reference material used while designing the site — not part of the deployed portfolio.
+agent-skills-main/
+awesome-design-md-main/
+playwright-cli-main/
+screenshot-to-code-main/
+taste-skill-main/
+
+# OS / editor cruft
+.DS_Store

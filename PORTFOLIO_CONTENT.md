@@ -108,19 +108,6 @@ Arctic Intelligence is an AML/financial crime compliance platform used by banks,
 
 ## Projects
 
-### AML Risk Intelligence Agent
-**Python, FastAPI, LangChain, Groq API, React**  
-**GitHub:** github.com/sirasatinithyanand (add repo link)
-
-Built an end-to-end agentic AI system for AML compliance risk assessment in one day, after seeing Arctic Intelligence's CEO post about a new product module on LinkedIn. Sent the demo directly to the CEO — leading to a job offer.
-
-- AI agent retrieves structured venue risk data and reasons over it using LLM tool-calling
-- Auto-generates regulator-ready AML compliance narratives in under 5 seconds
-- RAG-based natural language query interface with citation-grounded answers
-- Directly led to securing the AI Developer role at Arctic Intelligence
-
----
-
 ### FinAgent — NVIDIA Agentic AI Hackathon
 **Python, LangGraph, FastAPI, NVIDIA NeMo**  
 **GitHub:** github.com/sirasatinithyanand/cognitivo-mockathon-finagent

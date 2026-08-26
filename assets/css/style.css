@@ -129,7 +129,7 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
 .hero-kicker { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-secondary); margin-bottom: 1.25rem; }
 .hero-kicker-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 .hero-name { font-size: clamp(2.5rem, 6vw, 3.9rem); font-weight: 750; line-height: 1.02; letter-spacing: -0.03em; }
-.hero-role { margin-top: 0.6rem; font-size: clamp(1.3rem, 2.6vw, 1.7rem); font-weight: 600; letter-spacing: -0.01em; color: var(--ink-secondary); }
+.hero-role { margin-top: 0.7rem; font-size: clamp(1.55rem, 3.4vw, 2.2rem); font-weight: 650; letter-spacing: -0.015em; color: var(--ink); }
 .hero-sub { margin-top: 1.4rem; color: var(--ink-secondary); font-size: 1.2rem; font-weight: 400; max-width: 500px; line-height: 1.48; }
 .hero-actions { margin-top: 2.25rem; display: flex; gap: 0.9rem; flex-wrap: wrap; }
 .hero-tags { margin-top: 2rem; font-family: var(--font-mono); font-size: 0.84rem; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-secondary); }

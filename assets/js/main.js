@@ -31,7 +31,7 @@
           header.classList.toggle("is-scrolled", !entry.isIntersecting);
         });
       },
-      { threshold: 0, rootMargin: "-52px 0px 0px 0px" }
+      { threshold: 0, rootMargin: "-60px 0px 0px 0px" }
     );
     headerObserver.observe(topSentinel);
   }
@@ -63,7 +63,7 @@
     spySections.forEach(function (s) { spyObserver.observe(s.section); });
   }
 
-  // ---- Kinetic word-reveal on hero / contact headings ----
+  // ---- Kinetic word-reveal on the hero heading ----
   document.querySelectorAll(".split-words").forEach(function (el) {
     var words = el.textContent.trim().split(/\s+/);
     el.textContent = "";
@@ -79,28 +79,15 @@
 
   // ---- Scroll reveal ----
   var revealTargets = document.querySelectorAll(
-    ".section-head, .about-body, .stat-cell, .timeline-item, .project-card, .skill-group, .edu-item, .section-contact > *"
+    ".section-head, .timeline-item, .result, .project-card, .skill-group, .edu-item, .section-contact > *"
   );
 
   revealTargets.forEach(function (el) {
     el.setAttribute("data-reveal", "");
   });
 
-  var timelineItems = Array.prototype.slice.call(document.querySelectorAll(".timeline-item"));
-  var timelineEl = document.querySelector(".timeline");
-
-  function updateTimelineProgress() {
-    if (!timelineEl || !timelineItems.length) return;
-    var visibleCount = timelineItems.filter(function (el) { return el.classList.contains("is-visible"); }).length;
-    var pct = (visibleCount / timelineItems.length) * 100;
-    timelineEl.style.setProperty("--progress", pct + "%");
-  }
-
   if (reduceMotion || !("IntersectionObserver" in window)) {
-    revealTargets.forEach(function (el) {
-      el.classList.add("is-visible");
-    });
-    updateTimelineProgress();
+    revealTargets.forEach(function (el) { el.classList.add("is-visible"); });
   } else {
     var observer = new IntersectionObserver(
       function (entries) {
@@ -108,27 +95,23 @@
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
             observer.unobserve(entry.target);
-            if (entry.target.classList.contains("timeline-item")) updateTimelineProgress();
           }
         });
       },
       { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
     );
 
-    revealTargets.forEach(function (el) {
-      observer.observe(el);
-    });
+    revealTargets.forEach(function (el) { observer.observe(el); });
 
     // Safety net: never leave content permanently invisible.
     window.setTimeout(function () {
       revealTargets.forEach(function (el) { el.classList.add("is-visible"); });
-      updateTimelineProgress();
     }, 4000);
   }
 
-  // ---- Count-up stat numbers ----
-  var statEls = document.querySelectorAll(".stat-number[data-count-to]");
-  if (statEls.length) {
+  // ---- Count-up result numbers (the "outcome" animation in Experience) ----
+  var resultEls = document.querySelectorAll(".result-number[data-count-to]");
+  if (resultEls.length) {
     var animateCount = function (el) {
       var target = parseFloat(el.getAttribute("data-count-to"), 10);
       var suffix = el.getAttribute("data-suffix") || "";
@@ -137,7 +120,7 @@
         return;
       }
       var start = null;
-      var duration = 1200;
+      var duration = 1000;
       function step(ts) {
         if (start === null) start = ts;
         var progress = Math.min((ts - start) / duration, 1);
@@ -149,35 +132,21 @@
     };
 
     if ("IntersectionObserver" in window) {
-      var statObserver = new IntersectionObserver(
+      var resultObserver = new IntersectionObserver(
         function (entries) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
               animateCount(entry.target);
-              statObserver.unobserve(entry.target);
+              resultObserver.unobserve(entry.target);
             }
           });
         },
         { threshold: 0.6 }
       );
-      statEls.forEach(function (el) { statObserver.observe(el); });
+      resultEls.forEach(function (el) { resultObserver.observe(el); });
     } else {
-      statEls.forEach(animateCount);
+      resultEls.forEach(animateCount);
     }
-  }
-
-  // ---- Project gallery arrow controls ----
-  var gallery = document.querySelector("[data-gallery]");
-  if (gallery) {
-    var scrollGallery = function (dir) {
-      var card = gallery.querySelector(".project-card");
-      var step = card ? card.getBoundingClientRect().width + 20 : 340;
-      gallery.scrollBy({ left: dir * step, behavior: reduceMotion ? "auto" : "smooth" });
-    };
-    var prevBtn = document.querySelector("[data-gallery-prev]");
-    var nextBtn = document.querySelector("[data-gallery-next]");
-    if (prevBtn) prevBtn.addEventListener("click", function () { scrollGallery(-1); });
-    if (nextBtn) nextBtn.addEventListener("click", function () { scrollGallery(1); });
   }
 
   // ---- Footer year ----

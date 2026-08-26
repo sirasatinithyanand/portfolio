@@ -26,7 +26,7 @@
 
 <header class="site-header" id="top">
   <div class="wrap header-inner">
-    <a class="logo" href="#top" aria-label="Nithyananda Rao, home">NR<span class="logo-dot">.</span></a>
+    <a class="logo" href="#top" aria-label="Nithyananda Rao, home">Nithyananda Rao</a>
 
     <nav class="nav" id="site-nav" aria-label="Primary">
       <a href="#experience">Experience</a>
@@ -45,35 +45,55 @@
   <!-- HERO -->
   <section class="hero wrap" id="hero">
     <div class="hero-copy">
-      <p class="hero-kicker">Sydney, Australia</p>
-      <h1 class="split-words">AI Developer &amp; Backend Engineer</h1>
+      <p class="hero-kicker"><span class="hero-kicker-dot" aria-hidden="true"></span>Sydney, Australia</p>
+      <h1 class="split-words"><span class="line">AI Developer &amp;</span><span class="line">Backend Engineer</span></h1>
       <p class="hero-sub">I build production AI systems, from LLM workflows and retrieval pipelines to the APIs and infrastructure behind them.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">View selected work</a>
         <a href="#contact" class="btn btn-ghost">Get in touch</a>
       </div>
+      <p class="hero-tags">AI Systems &middot; Backend &middot; Data &middot; Infrastructure</p>
     </div>
 
-    <div class="hero-visual" aria-hidden="true">
-      <div class="flow-card">
-        <div class="flow">
-          <div class="flow-node">Query</div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-node">Retrieval</div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-node">Agent reasoning</div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-node is-output">Structured output</div>
+    <div class="hero-visual">
+      <div class="ai-panel" aria-label="AI workflow trace: input, retrieval, reasoning, validation, response.">
+        <div class="ai-panel-head">
+          <span class="ai-panel-title">AI Workflow</span>
+          <span class="ai-status" data-status>&#9679; System ready</span>
+        </div>
+        <div class="ai-panel-divider"></div>
+
+        <div class="ai-pipeline">
+          <div class="ai-node" data-node="input">
+            <div class="ai-node-row"><span class="ai-node-dot" aria-hidden="true"></span><span class="ai-node-label">Input</span></div>
+            <p class="ai-node-value">&ldquo;Assess venue risk&rdquo;</p>
+          </div>
+          <div class="ai-connector" aria-hidden="true"></div>
+
+          <div class="ai-node" data-node="retrieve">
+            <div class="ai-node-row"><span class="ai-node-dot" aria-hidden="true"></span><span class="ai-node-label">Retrieve</span></div>
+            <p class="ai-node-value">12 sources found</p>
+          </div>
+          <div class="ai-connector" aria-hidden="true"></div>
+
+          <div class="ai-node" data-node="reason">
+            <div class="ai-node-row"><span class="ai-node-dot" aria-hidden="true"></span><span class="ai-node-label">Reason</span></div>
+            <p class="ai-node-value">Risk agent active</p>
+          </div>
+          <div class="ai-connector" aria-hidden="true"></div>
+
+          <div class="ai-node" data-node="validate">
+            <div class="ai-node-row"><span class="ai-node-dot" aria-hidden="true"></span><span class="ai-node-label">Validate</span></div>
+            <p class="ai-node-value">Evidence grounded</p>
+          </div>
+          <div class="ai-connector" aria-hidden="true"></div>
+
+          <div class="ai-node" data-node="response">
+            <div class="ai-node-row"><span class="ai-node-dot" aria-hidden="true"></span><span class="ai-node-label">Response</span></div>
+            <p class="ai-node-value">Risk narrative generated</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- CREDIBILITY STRIP -->
-  <section class="strip section-muted">
-    <div class="wrap strip-inner">
-      <p class="strip-label"><strong>AI Systems</strong> &middot; <strong>Backend</strong> &middot; <strong>RAG &amp; Agents</strong> &middot; <strong>Production</strong></p>
-      <p class="strip-label">Python &middot; FastAPI &middot; LangGraph &middot; PostgreSQL &middot; Java &middot; Spring Boot</p>
     </div>
   </section>
 
@@ -337,7 +357,7 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <span>NR. &middot; Sydney, Australia</span>
+    <span>Nithyananda Rao &middot; Sydney, Australia</span>
     <span><a href="https://github.com/sirasatinithyanand" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://www.linkedin.com/in/nithyananda-rao-96b572216" target="_blank" rel="noopener">LinkedIn</a></span>
   </div>
 </footer>

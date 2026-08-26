@@ -63,17 +63,24 @@
     spySections.forEach(function (s) { spyObserver.observe(s.section); });
   }
 
-  // ---- Kinetic word-reveal on the hero heading ----
+  // ---- Kinetic word-reveal on headings (splits per .line if present, so a
+  //      forced 2-line heading like the hero keeps its line breaks) ----
   document.querySelectorAll(".split-words").forEach(function (el) {
-    var words = el.textContent.trim().split(/\s+/);
-    el.textContent = "";
-    words.forEach(function (word, i) {
-      var span = document.createElement("span");
-      span.className = "word";
-      span.style.setProperty("--i", i);
-      span.textContent = word;
-      el.appendChild(span);
-      if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
+    var lineEls = el.querySelectorAll(".line");
+    var containers = lineEls.length ? Array.prototype.slice.call(lineEls) : [el];
+    var wordIndex = 0;
+    containers.forEach(function (container) {
+      var words = container.textContent.trim().split(/\s+/);
+      container.textContent = "";
+      words.forEach(function (word, i) {
+        var span = document.createElement("span");
+        span.className = "word";
+        span.style.setProperty("--i", wordIndex);
+        span.textContent = word;
+        container.appendChild(span);
+        if (i < words.length - 1) container.appendChild(document.createTextNode(" "));
+        wordIndex++;
+      });
     });
   });
 
@@ -146,6 +153,81 @@
       resultEls.forEach(function (el) { resultObserver.observe(el); });
     } else {
       resultEls.forEach(animateCount);
+    }
+  }
+
+  // ---- Hero AI workflow trace: a real system state machine, not decoration ----
+  var panel = document.querySelector(".ai-panel");
+  if (panel) {
+    var stageOrder = ["input", "retrieve", "reason", "validate", "response"];
+    var panelNodes = stageOrder.map(function (id) { return panel.querySelector('[data-node="' + id + '"]'); });
+    var panelConnectors = Array.prototype.slice.call(panel.querySelectorAll(".ai-connector"));
+    var statusEl = panel.querySelector("[data-status]");
+
+    function setStatus(text, processing) {
+      if (!statusEl) return;
+      statusEl.textContent = "● " + text;
+      statusEl.classList.toggle("is-processing", !!processing);
+    }
+
+    function showFinalState() {
+      panelNodes.forEach(function (n) { n.classList.remove("is-active"); n.classList.add("is-done"); });
+      panelConnectors.forEach(function (c) { c.classList.remove("is-active"); });
+      setStatus("System ready", false);
+    }
+
+    if (reduceMotion) {
+      showFinalState();
+    } else {
+      var stepMs = 900;
+      var pauseMs = 1300;
+      var index = -1;
+      var timerId = null;
+
+      function advance() {
+        if (index >= 0) {
+          panelNodes[index].classList.remove("is-active");
+          panelNodes[index].classList.add("is-done");
+          if (index > 0) panelConnectors[index - 1].classList.remove("is-active");
+        }
+        index++;
+
+        if (index < panelNodes.length) {
+          if (index > 0) panelConnectors[index - 1].classList.add("is-active");
+          panelNodes[index].classList.add("is-active");
+          setStatus("Processing", true);
+          timerId = window.setTimeout(advance, stepMs);
+        } else {
+          setStatus("System ready", false);
+          timerId = window.setTimeout(function () {
+            panelNodes.forEach(function (n) { n.classList.remove("is-active", "is-done"); });
+            panelConnectors.forEach(function (c) { c.classList.remove("is-active"); });
+            index = -1;
+            advance();
+          }, pauseMs);
+        }
+      }
+
+      // Pause the trace when the hero isn't visible, resume when it is —
+      // no point running an animation loop no one can see.
+      if ("IntersectionObserver" in window) {
+        var heroObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting && timerId === null) {
+                advance();
+              } else if (!entry.isIntersecting && timerId !== null) {
+                window.clearTimeout(timerId);
+                timerId = null;
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+        heroObserver.observe(panel);
+      } else {
+        advance();
+      }
     }
   }
 

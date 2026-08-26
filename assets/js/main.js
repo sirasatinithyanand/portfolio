@@ -79,7 +79,7 @@
 
   // ---- Scroll reveal ----
   var revealTargets = document.querySelectorAll(
-    ".section-head, .timeline-item, .result, .project-card, .skill-group, .edu-item, .section-contact > *"
+    ".section-head, .timeline-item, .work-featured, .work-secondary, .work-compact, .skill-group, .edu-primary, .leadership-item, .section-contact > *"
   );
 
   revealTargets.forEach(function (el) {
@@ -109,8 +109,8 @@
     }, 4000);
   }
 
-  // ---- Count-up result numbers (the "outcome" animation in Experience) ----
-  var resultEls = document.querySelectorAll(".result-number[data-count-to]");
+  // ---- Count-up metric numbers (the "outcome" animation in Experience) ----
+  var resultEls = document.querySelectorAll(".metric-number[data-count-to]");
   if (resultEls.length) {
     var animateCount = function (el) {
       var target = parseFloat(el.getAttribute("data-count-to"), 10);

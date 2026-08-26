@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nithyananda Rao | AI Developer &amp; Backend Engineer</title>
 <meta name="description" content="Nithyananda Rao is an AI Developer and backend engineer in Sydney, building LLM pipelines, agentic workflows, and production backend systems.">
-<meta name="theme-color" content="#1d1d1f">
+<meta name="theme-color" content="#ffffff">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nithyananda Rao | AI Developer & Backend Engineer">
-<meta property="og:description" content="LLM pipelines, agentic workflows, and production backend systems.">
+<meta property="og:description" content="I build production AI systems, from LLM workflows and retrieval pipelines to the APIs and infrastructure behind them.">
 <meta name="twitter:card" content="summary">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -29,9 +29,8 @@
     <a class="logo" href="#top" aria-label="Nithyananda Rao, home">NR<span class="logo-dot">.</span></a>
 
     <nav class="nav" id="site-nav" aria-label="Primary">
-      <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
-      <a href="#projects">Work</a>
+      <a href="#projects">Projects</a>
       <a href="#contact" class="nav-cta">Get in touch</a>
     </nav>
 
@@ -44,85 +43,146 @@
 <main id="main">
 
   <!-- HERO -->
-  <section class="tile-light" id="hero">
-    <div class="hero wrap">
-      <div class="hero-copy">
-        <p class="hero-kicker">Sydney, Australia</p>
-        <h1 class="split-words">AI Developer &amp; Backend Engineer</h1>
-        <p class="hero-sub">LLM pipelines, agentic workflows, and production backend systems.</p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">View projects</a>
-          <a href="#contact" class="btn btn-ghost">Get in touch</a>
-        </div>
+  <section class="hero wrap" id="hero">
+    <div class="hero-copy">
+      <p class="hero-kicker">Sydney, Australia</p>
+      <h1 class="split-words">AI Developer &amp; Backend Engineer</h1>
+      <p class="hero-sub">I build production AI systems, from LLM workflows and retrieval pipelines to the APIs and infrastructure behind them.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View selected work</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
       </div>
+    </div>
 
-      <div class="hero-visual" aria-hidden="true">
-        <div class="code-card">
-          <div class="code-card-bar">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            <span class="code-card-title">agent.py</span>
-          </div>
-          <pre class="code-card-body"><code><span class="tok-kw">class</span> <span class="tok-cls">RiskAgent</span>:
-    <span class="tok-kw">def</span> <span class="tok-fn">assess</span>(<span class="tok-var">self</span>, venue):
-        facts = self.retrieve(venue)
-        risk = self.llm.reason(facts)
-        <span class="tok-kw">return</span> Narrative(
-            score=risk.score,
-            citations=facts.sources,
-        )
-
-<span class="tok-cmt"># 5s to a regulator-ready narrative</span>
-<span class="tok-prompt">$</span> agent.assess(<span class="tok-str">"venue_442"</span>)
-<span class="tok-out">narrative generated in 4.8s</span><span class="cursor-blink">_</span></code></pre>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="flow-card">
+        <div class="flow">
+          <div class="flow-node">Query</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node">Retrieval</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node">Agent reasoning</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node is-output">Structured output</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section class="section tile-dark" id="skills">
+  <!-- CREDIBILITY STRIP -->
+  <section class="strip section-muted">
+    <div class="wrap strip-inner">
+      <p class="strip-label"><strong>AI Systems</strong> &middot; <strong>Backend</strong> &middot; <strong>RAG &amp; Agents</strong> &middot; <strong>Production</strong></p>
+      <p class="strip-label">Python &middot; FastAPI &middot; LangGraph &middot; PostgreSQL &middot; Java &middot; Spring Boot</p>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="section" id="projects">
     <div class="wrap">
       <div class="section-head">
-        <h2>Skills</h2>
+        <h2>Selected work</h2>
       </div>
-      <div class="skills-grid">
-        <div class="skill-group">
-          <h3>AI &amp; Generative AI</h3>
-          <ul class="tag-list">
-            <li>LLM APIs</li><li>LangChain</li><li>LangGraph</li><li>RAG</li><li>Agentic Workflows</li><li>MCP</li>
-          </ul>
+
+      <div class="work-grid">
+
+        <!-- Featured -->
+        <article class="work-featured" data-reveal>
+          <div class="work-body">
+            <p class="eyebrow">Featured project</p>
+            <h3>FinAgent</h3>
+            <p class="work-desc">Evidence-grounded financial market strategy agent, built at the Cognitivo &times; NVIDIA Mockathon with NVIDIA, Anthropic, and LangChain.</p>
+            <ul class="work-points">
+              <li>LangGraph agent competing in a round-robin, agent-vs-agent evaluation</li>
+              <li>Built on NVIDIA Gigabyte AI Top Atom hardware</li>
+            </ul>
+            <div class="work-meta">
+              <p class="tech-line">LangGraph &middot; Python &middot; FastAPI</p>
+              <a class="work-link" href="https://github.com/sirasatinithyanand/cognitivo-mockathon-finagent" target="_blank" rel="noopener">View project &#8599;</a>
+            </div>
+          </div>
+          <div class="flow-card" aria-hidden="true">
+            <div class="flow">
+              <div class="flow-node">Market data</div>
+              <div class="flow-arrow">&#8595;</div>
+              <div class="flow-node">Retrieval</div>
+              <div class="flow-arrow">&#8595;</div>
+              <div class="flow-node">Agent reasoning</div>
+              <div class="flow-arrow">&#8595;</div>
+              <div class="flow-node">Evidence validation</div>
+              <div class="flow-arrow">&#8595;</div>
+              <div class="flow-node is-output">Recommendation + confidence</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Secondary -->
+        <div class="work-secondary-row">
+          <article class="work-secondary" data-reveal>
+            <div class="work-body">
+              <h3>AI Data Copilot</h3>
+              <p>Ask questions in natural language and generate SQL across 100+ table schemas.</p>
+              <ul class="work-points">
+                <li>Embedding-based schema retrieval</li>
+                <li>Confidence-scored column mapping</li>
+                <li>Ambiguity-aware SQL generation</li>
+              </ul>
+              <div class="work-meta">
+                <p class="tech-line">Python &middot; FastAPI &middot; LangChain</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="work-secondary" data-reveal>
+            <div class="work-body">
+              <h3>TeachMap</h3>
+              <p>Maps university curricula worldwide onto an interactive globe, built from live web scraping and adaptive feedback loops.</p>
+              <ul class="work-points">
+                <li>Real-time data pipeline feeding an interactive world map</li>
+              </ul>
+              <div class="work-meta">
+                <p class="tech-line">Next.js &middot; Gemini &middot; Supabase</p>
+              </div>
+            </div>
+          </article>
         </div>
-        <div class="skill-group">
-          <h3>Backend &amp; Systems</h3>
-          <ul class="tag-list">
-            <li>Python</li><li>Java</li><li>TypeScript</li><li>FastAPI</li><li>Spring Boot</li><li>System Design</li>
-          </ul>
+
+        <!-- Compact -->
+        <div class="work-compact-row">
+          <article class="work-compact" data-reveal>
+            <div class="work-body">
+              <h3>LoadForge</h3>
+              <p>Benchmarked query performance across 225,000+ rows, cutting execution from seconds to milliseconds through indexing and schema redesign.</p>
+              <div class="work-meta">
+                <p class="tech-line">Python &middot; PostgreSQL</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="work-compact" data-reveal>
+            <div class="work-body">
+              <h3>Backend Transaction System</h3>
+              <p>Production backend with authentication, RBAC, and financial reporting, built for correctness under concurrent load.</p>
+              <div class="work-meta">
+                <p class="tech-line">Java &middot; Spring Boot &middot; MongoDB</p>
+              </div>
+            </div>
+          </article>
         </div>
-        <div class="skill-group">
-          <h3>Databases</h3>
-          <ul class="tag-list">
-            <li>PostgreSQL</li><li>MongoDB</li><li>Supabase</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Infrastructure &amp; Frontend</h3>
-          <ul class="tag-list">
-            <li>Docker</li><li>CI/CD</li><li>Next.js</li><li>React</li>
-          </ul>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE, merged with outcomes: result first, company second -->
-  <section class="section tile-parchment" id="experience">
+  <!-- EXPERIENCE -->
+  <section class="section section-muted" id="experience">
     <div class="wrap">
       <div class="section-head">
         <h2>Experience</h2>
       </div>
 
       <ol class="timeline">
-        <li class="timeline-item">
+        <li class="timeline-item is-current" data-reveal>
           <div class="timeline-content">
             <div class="timeline-head">
               <h3>AI Developer <span class="timeline-org">&middot; Arctic Intelligence</span></h3>
@@ -136,37 +196,45 @@
           </div>
         </li>
 
-        <li class="timeline-item">
+        <li class="timeline-item" data-reveal>
           <div class="timeline-content">
             <div class="timeline-head">
               <h3>Software Development Engineer <span class="timeline-org">&middot; ConnectSecure</span></h3>
               <span class="timeline-date">Aug 2024 - Jan 2026</span>
             </div>
             <p class="timeline-sub">US-based cybersecurity SaaS, Remote</p>
-            <div class="results">
-              <div class="result">
-                <span class="result-number" data-count-to="40" data-suffix="%">0%</span>
-                <p class="result-label">Cut onboarding effort with the company's first AI-powered reporting platform, an async LLM pipeline with structured output validation</p>
+            <div class="metrics">
+              <div class="metric">
+                <span class="metric-number" data-count-to="40" data-suffix="%">0%</span>
+                <p class="metric-label">Less onboarding effort</p>
+                <p class="metric-sub">AI-powered reporting pipeline</p>
               </div>
-              <div class="result">
-                <span class="result-number" data-count-to="70" data-suffix="%">0%</span>
-                <p class="result-label">Cut manual mapping effort with an embedding-based database migration tool using semantic search</p>
+              <div class="metric">
+                <span class="metric-number" data-count-to="70" data-suffix="%">0%</span>
+                <p class="metric-label">Less manual mapping</p>
+                <p class="metric-sub">Semantic migration tooling</p>
               </div>
             </div>
           </div>
         </li>
 
-        <li class="timeline-item">
+        <li class="timeline-item" data-reveal>
           <div class="timeline-content">
             <div class="timeline-head">
               <h3>Backend Development Intern <span class="timeline-org">&middot; ChangeJar Technologies</span></h3>
               <span class="timeline-date">Mar 2024 - Jul 2024</span>
             </div>
             <p class="timeline-sub">Fintech startup, Bengaluru, India</p>
-            <div class="results">
-              <div class="result">
-                <span class="result-number" data-count-to="30" data-suffix="%">0%</span>
-                <p class="result-label">Growth in user acquisition from a referral backend system, at 50% lower acquisition cost</p>
+            <div class="metrics">
+              <div class="metric">
+                <span class="metric-number" data-count-to="30" data-suffix="%">0%</span>
+                <p class="metric-label">User acquisition growth</p>
+                <p class="metric-sub">Referral backend system</p>
+              </div>
+              <div class="metric">
+                <span class="metric-number" data-count-to="50" data-suffix="%">0%</span>
+                <p class="metric-label">Lower acquisition cost</p>
+                <p class="metric-sub">Same referral system</p>
               </div>
             </div>
           </div>
@@ -175,139 +243,90 @@
     </div>
   </section>
 
-  <!-- PROJECTS: cards pop bright against the dark tile -->
-  <section class="section tile-dark" id="projects">
+  <!-- TECHNICAL RANGE -->
+  <section class="section" id="skills">
     <div class="wrap">
       <div class="section-head">
-        <h2>Projects</h2>
+        <h2>Technical range</h2>
       </div>
-
-      <div class="project-grid">
-
-        <article class="project-card">
-          <div class="project-body">
-            <h3>FinAgent</h3>
-            <span class="project-sub">NVIDIA Agentic AI Hackathon</span>
-            <p>Evidence-grounded financial market strategy agent, built at the Cognitivo &times; NVIDIA Mockathon with NVIDIA, Anthropic, and LangChain.</p>
-            <ul class="project-points">
-              <li>LangGraph agent competing in a round-robin, agent-vs-agent evaluation</li>
-            </ul>
-          </div>
-          <div class="project-foot">
-            <ul class="tag-list-sm">
-              <li>Python</li><li>LangGraph</li><li>FastAPI</li>
-            </ul>
-            <a class="project-link" href="https://github.com/sirasatinithyanand/cognitivo-mockathon-finagent" target="_blank" rel="noopener">Repo &#8599;</a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-body">
-            <h3>AI Data Copilot</h3>
-            <span class="project-sub">Natural Language Query Engine</span>
-            <p>Translates natural language into SQL across 100+ table schemas using embedding-based table retrieval.</p>
-            <ul class="project-points">
-              <li>Confidence-scored column mapping and schema-ambiguity reasoning</li>
-            </ul>
-          </div>
-          <div class="project-foot">
-            <ul class="tag-list-sm">
-              <li>Python</li><li>FastAPI</li><li>LangChain</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-body">
-            <h3>TeachMap</h3>
-            <span class="project-sub">AI Curriculum Builder</span>
-            <p>Full-stack platform mapping university curricula worldwide, with live web scraping and adaptive feedback.</p>
-          </div>
-          <div class="project-foot">
-            <ul class="tag-list-sm">
-              <li>Next.js</li><li>Gemini</li><li>Supabase</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-body">
-            <h3>LoadForge</h3>
-            <span class="project-sub">Backend Performance Testing</span>
-            <p>Multi-tenant backend simulation benchmarking query performance across 225,000+ rows.</p>
-            <ul class="project-points">
-              <li>Query execution optimised from seconds to milliseconds through indexing and schema redesign</li>
-            </ul>
-          </div>
-          <div class="project-foot">
-            <ul class="tag-list-sm">
-              <li>Python</li><li>PostgreSQL</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-body">
-            <h3>Backend Transaction System</h3>
-            <span class="project-sub">Java &middot; Spring Boot</span>
-            <p>Production backend with authentication, RBAC, and financial reporting, built for correctness under concurrent load.</p>
-          </div>
-          <div class="project-foot">
-            <ul class="tag-list-sm">
-              <li>Java</li><li>Spring Boot</li><li>MongoDB</li>
-            </ul>
-          </div>
-        </article>
-
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>AI Systems</h3>
+          <ul>
+            <li>LLM APIs</li><li>LangChain</li><li>LangGraph</li><li>RAG</li><li>Agentic Workflows</li><li>MCP</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Backend</h3>
+          <ul>
+            <li>Python</li><li>Java</li><li>TypeScript</li><li>FastAPI</li><li>Spring Boot</li><li>System Design</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Data</h3>
+          <ul>
+            <li>PostgreSQL</li><li>MongoDB</li><li>Supabase</li><li>Vector Search</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Infrastructure</h3>
+          <ul>
+            <li>Docker</li><li>CI/CD</li><li>Next.js</li><li>React</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- EDUCATION + LEADERSHIP -->
-  <section class="section tile-parchment" id="education">
+  <!-- EDUCATION -->
+  <section class="section section-muted" id="education">
     <div class="wrap">
       <div class="section-head">
-        <h2>Education &amp; Leadership</h2>
+        <h2>Education</h2>
       </div>
-
-      <div class="edu-row">
-        <div class="edu-item">
-          <div class="edu-head">
-            <h3>Master of Information Technology <span class="project-sub">(AI)</span></h3>
-            <span class="edu-date">Feb 2026 - Dec 2027</span>
-          </div>
-          <p class="timeline-sub">University of New South Wales (UNSW), Sydney</p>
-          <ul>
-            <li>Projects Director, UNSW AI Society: leading student projects in reinforcement learning and AI-powered 3D campus mapping</li>
-          </ul>
+      <div class="edu-item edu-primary" data-reveal>
+        <div class="edu-head">
+          <h3>Master of Information Technology <span class="tech-line">(Artificial Intelligence)</span></h3>
+          <span class="edu-date">Feb 2026 - Dec 2027</span>
         </div>
+        <p class="timeline-sub">University of New South Wales (UNSW), Sydney</p>
+      </div>
+      <div class="edu-secondary">
+        <h3>B.Tech, Electronics and Communication Engineering &middot; PES University, Bengaluru</h3>
+        <span class="edu-date">Jan 2020 - Dec 2024</span>
+      </div>
+    </div>
+  </section>
 
-        <div class="edu-item">
-          <div class="edu-head">
-            <h3>B.Tech, Electronics and Communication Engineering</h3>
-            <span class="edu-date">Jan 2020 - Dec 2024</span>
-          </div>
-          <p class="timeline-sub">PES University, Bengaluru, India &middot; CGPA 7.44/10</p>
+  <!-- LEADERSHIP -->
+  <section class="section" id="leadership">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Leadership</h2>
+      </div>
+      <div class="leadership-row">
+        <div class="leadership-item" data-reveal>
+          <h3>Projects Director <span class="tech-line">&middot; UNSW AI Society</span></h3>
+          <span class="edu-date">Feb 2026 - Present</span>
+          <p>Leading student projects in reinforcement learning and AI-powered 3D campus mapping.</p>
         </div>
-
-        <div class="edu-item">
-          <div class="edu-head">
-            <h3>Hackathon Coach &amp; Organiser <span class="project-sub">&middot; Cognitivo &times; NVIDIA</span></h3>
-            <span class="edu-date">Jul 2026</span>
-          </div>
-          <p>Invited by Cognitivo founder Alan Hsiao to coach a 3-day enterprise AI hackathon, designing the Day 1 training task on agentic AI and API integration.</p>
+        <div class="leadership-item" data-reveal>
+          <h3>Hackathon Coach &amp; Organiser <span class="tech-line">&middot; Cognitivo &times; NVIDIA</span></h3>
+          <span class="edu-date">Jul 2026</span>
+          <p>Coached an enterprise AI hackathon and designed the Day 1 training task on agentic AI and API integration, alongside trainers from NVIDIA, Anthropic, and LangChain.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="section section-contact tile-dark" id="contact">
+  <section class="section section-contact section-muted" id="contact">
     <div class="wrap">
-      <h2>Get in touch</h2>
+      <h2 class="split-words">Have a hard problem to solve?</h2>
+      <p class="contact-sub">I build AI systems, backend infrastructure, and products that need to work in the real world.</p>
 
       <div class="contact-links">
-        <a class="btn btn-primary" href="mailto:sirasatinithyanand@gmail.com">sirasatinithyanand@gmail.com</a>
+        <a class="btn btn-primary" href="mailto:sirasatinithyanand@gmail.com">Email me</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/nithyananda-rao-96b572216" target="_blank" rel="noopener">LinkedIn &#8599;</a>
         <a class="btn btn-ghost" href="https://github.com/sirasatinithyanand" target="_blank" rel="noopener">GitHub &#8599;</a>
       </div>
@@ -318,8 +337,8 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <p>&copy; <span id="year">2026</span> Nithyananda Rao</p>
-    <a href="#top" class="back-to-top">Back to top &uarr;</a>
+    <span>NR. &middot; Sydney, Australia</span>
+    <span><a href="https://github.com/sirasatinithyanand" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://www.linkedin.com/in/nithyananda-rao-96b572216" target="_blank" rel="noopener">LinkedIn</a></span>
   </div>
 </footer>
 

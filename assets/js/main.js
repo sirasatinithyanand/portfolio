@@ -80,7 +80,7 @@
 
   // ---- Scroll reveal ----
   var revealTargets = document.querySelectorAll(
-    ".section-head, .about-body, .stats-grid, .timeline-item, .project-card, .skill-group, .edu-item, .section-contact > *"
+    ".chapter-rule, .section-head, .about-body, .stats-grid, .timeline-item, .project-card, .skill-group, .edu-item, .section-contact > *"
   );
 
   revealTargets.forEach(function (el) {
@@ -207,6 +207,20 @@
         btn.style.transform = "translate(0, 0)";
       });
     });
+  }
+
+  // ---- Project gallery arrow controls ----
+  var gallery = document.querySelector("[data-gallery]");
+  if (gallery) {
+    var scrollGallery = function (dir) {
+      var card = gallery.querySelector(".project-card");
+      var step = card ? card.getBoundingClientRect().width + 20 : 340;
+      gallery.scrollBy({ left: dir * step, behavior: reduceMotion ? "auto" : "smooth" });
+    };
+    var prevBtn = document.querySelector("[data-gallery-prev]");
+    var nextBtn = document.querySelector("[data-gallery-next]");
+    if (prevBtn) prevBtn.addEventListener("click", function () { scrollGallery(-1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { scrollGallery(1); });
   }
 
   // ---- Footer year ----

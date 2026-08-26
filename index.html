@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nithyananda Rao | AI Developer &amp; Backend Engineer</title>
 <meta name="description" content="Nithyananda Rao is an AI Developer and backend engineer in Sydney, building LLM pipelines, agentic workflows, and production backend systems.">
-<meta name="theme-color" content="#eeefe9">
+<meta name="theme-color" content="#0e0e0d">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nithyananda Rao | AI Developer & Backend Engineer">
@@ -15,7 +15,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -44,27 +44,28 @@
 
 <main id="main">
 
-  <!-- HERO -->
-  <section class="hero wrap" id="hero">
-    <div class="mesh" aria-hidden="true"></div>
+  <!-- HERO (pinned: the About chapter slides up and covers it) -->
+  <div class="hero-pin-wrap chapter-dark">
+    <section class="hero wrap" id="hero">
+      <div class="mesh" aria-hidden="true"></div>
 
-    <div class="hero-copy">
-      <p class="hero-kicker">Sydney, Australia &middot; Open to new problems</p>
-      <h1 class="split-words">AI Developer &amp; Backend Engineer building systems that ship.</h1>
-      <p class="hero-sub">I build AI systems that actually work in production: LLM pipelines, agentic workflows, and the backend infrastructure to make them scale.</p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary" data-magnetic>View projects</a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
-      </div>
-    </div>
-
-    <div class="hero-visual" aria-hidden="true">
-      <div class="code-card" data-tilt>
-        <div class="code-card-bar">
-          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
-          <span class="code-card-title">agent.py</span>
+      <div class="hero-copy">
+        <p class="hero-kicker">Sydney, Australia &middot; Open to new problems</p>
+        <h1 class="split-words">AI Developer &amp; Backend Engineer building systems that ship.</h1>
+        <p class="hero-sub">I build AI systems that actually work in production: LLM pipelines, agentic workflows, and the backend infrastructure to make them scale.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary" data-magnetic>View projects</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
         </div>
-        <pre class="code-card-body"><code><span class="tok-kw">class</span> <span class="tok-cls">RiskAgent</span>:
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="code-card" data-tilt>
+          <div class="code-card-bar">
+            <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+            <span class="code-card-title">agent.py</span>
+          </div>
+          <pre class="code-card-body"><code><span class="tok-kw">class</span> <span class="tok-cls">RiskAgent</span>:
     <span class="tok-kw">def</span> <span class="tok-fn">assess</span>(<span class="tok-var">self</span>, venue):
         facts = self.retrieve(venue)
         risk = self.llm.reason(facts)
@@ -74,16 +75,18 @@
         )
 
 <span class="tok-cmt"># 5s to a regulator-ready narrative</span>
-<span class="tok-prompt">$</span> agent.assess(<span class="tok-str">"venue_442"</span>)
-<span class="tok-out">narrative generated in 4.8s</span><span class="cursor-blink">_</span></code></pre>
+<span class="tok-prompt">$</span> <span class="typewriter" style="--chw:26ch">agent.assess(<span class="tok-str">"venue_442"</span>)</span>
+<span class="typewriter line-2" style="--chw:29ch"><span class="tok-out">narrative generated in 4.8s</span></span><span class="cursor-blink">_</span></code></pre>
+        </div>
+        <div class="pin pin-1"><span class="pin-dot"></span><span class="pin-label">Tool-calling reasoning</span></div>
+        <div class="pin pin-2"><span class="pin-dot"></span><span class="pin-label">Structured output</span></div>
       </div>
-      <div class="pin pin-1"><span class="pin-dot"></span><span class="pin-label">Tool-calling reasoning</span></div>
-      <div class="pin pin-2"><span class="pin-dot"></span><span class="pin-label">Structured output</span></div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- ABOUT -->
-  <section class="section" id="about">
+  <section class="section chapter-light" id="about">
+    <div class="chapter-rule" aria-hidden="true"></div>
     <div class="wrap">
       <div class="section-head">
         <h2>About</h2>
@@ -97,7 +100,8 @@
   </section>
 
   <!-- STATS -->
-  <section class="section stats-band" id="stats">
+  <section class="section chapter-dark" id="stats">
+    <div class="chapter-rule" aria-hidden="true"></div>
     <div class="wrap">
       <div class="stats-grid">
         <div class="stat-cell">
@@ -121,7 +125,8 @@
   </section>
 
   <!-- EXPERIENCE -->
-  <section class="section" id="experience">
+  <section class="section chapter-light" id="experience">
+    <div class="chapter-rule" aria-hidden="true"></div>
     <div class="wrap">
       <div class="section-head">
         <h2>Experience</h2>
@@ -179,19 +184,26 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section class="section section-alt" id="projects">
+  <!-- PROJECTS: horizontal scroll-snap gallery -->
+  <section class="section chapter-dark" id="projects">
+    <div class="chapter-rule" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Selected work</p>
-        <h2>Projects</h2>
+      <div class="gallery-head">
+        <div class="section-head" style="margin-bottom:0;">
+          <p class="eyebrow">Selected work</p>
+          <h2>Projects</h2>
+        </div>
+        <div class="gallery-nav">
+          <button class="gallery-btn" type="button" data-gallery-prev aria-label="Scroll projects left">&#8592;</button>
+          <button class="gallery-btn" type="button" data-gallery-next aria-label="Scroll projects right">&#8594;</button>
+        </div>
       </div>
 
-      <div class="project-grid">
+      <div class="project-scroller" data-gallery>
 
-        <article class="project-card project-card-wide">
+        <article class="project-card project-card-feature">
           <div class="project-body">
-            <h3><span class="project-swatch" aria-hidden="true"></span>FinAgent <span class="project-sub">&middot; NVIDIA Agentic AI Hackathon</span></h3>
+            <h3>FinAgent <span class="project-sub">&middot; NVIDIA Agentic AI Hackathon</span></h3>
             <p>Built at the Cognitivo &times; NVIDIA Mockathon (Stone &amp; Chalk, Sydney), run in collaboration with NVIDIA, Anthropic, and LangChain for 40 enterprise engineers.</p>
             <ul class="project-points">
               <li>Evidence-grounded financial market strategy agent using LangGraph</li>
@@ -209,7 +221,7 @@
 
         <article class="project-card">
           <div class="project-body">
-            <h3><span class="project-swatch" aria-hidden="true"></span>AI Data Copilot <span class="project-sub">&middot; NL Query Engine</span></h3>
+            <h3>AI Data Copilot <span class="project-sub">&middot; NL Query Engine</span></h3>
             <p>An agentic system that translates natural language into SQL across 100+ table schemas.</p>
             <ul class="project-points">
               <li>Embedding-based semantic table retrieval with confidence-scored column mapping</li>
@@ -225,7 +237,7 @@
 
         <article class="project-card">
           <div class="project-body">
-            <h3><span class="project-swatch" aria-hidden="true"></span>TeachMap <span class="project-sub">&middot; AI Curriculum Builder</span></h3>
+            <h3>TeachMap <span class="project-sub">&middot; AI Curriculum Builder</span></h3>
             <p>Full-stack platform with live web scraping via Gemini and Google Search, real-time adaptive feedback for lecture content, and an interactive world map of university curricula.</p>
             <ul class="project-points">
               <li>Owned end-to-end architecture and deployment</li>
@@ -238,9 +250,9 @@
           </div>
         </article>
 
-        <article class="project-card project-card-wide">
+        <article class="project-card">
           <div class="project-body">
-            <h3><span class="project-swatch" aria-hidden="true"></span>LoadForge <span class="project-sub">&middot; Backend Performance Testing</span></h3>
+            <h3>LoadForge <span class="project-sub">&middot; Backend Performance Testing</span></h3>
             <p>A multi-tenant SaaS backend simulation with 225,000+ rows across 5 tenants, built to benchmark query performance under production load.</p>
             <ul class="project-points">
               <li>Optimised query execution from seconds to milliseconds through layered indexing, query plan analysis, and schema redesign</li>
@@ -253,9 +265,9 @@
           </div>
         </article>
 
-        <article class="project-card project-card-full">
+        <article class="project-card">
           <div class="project-body">
-            <h3><span class="project-swatch" aria-hidden="true"></span>Backend Transaction System</h3>
+            <h3>Backend Transaction System</h3>
             <p>A production backend with authentication, RBAC, REST APIs, rate limiting, and financial reporting, designed for correctness and resilience under concurrent load.</p>
           </div>
           <div class="project-foot">
@@ -270,7 +282,8 @@
   </section>
 
   <!-- SKILLS -->
-  <section class="section" id="skills">
+  <section class="section chapter-light" id="skills">
+    <div class="chapter-rule" aria-hidden="true"></div>
     <div class="wrap">
       <div class="section-head">
         <h2>Skills</h2>
@@ -332,7 +345,8 @@
   </section>
 
   <!-- EDUCATION + LEADERSHIP -->
-  <section class="section section-alt" id="education">
+  <section class="section chapter-light" id="education">
+    <div class="chapter-rule" aria-hidden="true"></div>
     <div class="wrap education-grid">
       <div class="section-head">
         <h2>Education &amp; Leadership</h2>
@@ -370,8 +384,9 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="section section-contact section-dark" id="contact">
+  <!-- CONTACT (closing bookend chapter) -->
+  <section class="section section-contact chapter-dark" id="contact">
+    <div class="chapter-rule" aria-hidden="true"></div>
     <div class="wrap">
       <p class="eyebrow">Get in touch</p>
       <h2 class="split-words">Let's build something worth shipping.</h2>
@@ -384,7 +399,7 @@
       </div>
 
       <div class="github-graph">
-        <img src="https://ghchart.rshah.org/cd8a26/sirasatinithyanand" alt="Nithyananda Rao's GitHub contribution activity" loading="lazy" width="721" height="112">
+        <img src="https://ghchart.rshah.org/8d88ff/sirasatinithyanand" alt="Nithyananda Rao's GitHub contribution activity" loading="lazy" width="721" height="112">
       </div>
     </div>
   </section>

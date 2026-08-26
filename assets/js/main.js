@@ -80,7 +80,7 @@
 
   // ---- Scroll reveal ----
   var revealTargets = document.querySelectorAll(
-    ".section-head, .about-body, .stat-bento, .timeline-item, .project-card, .skill-group, .edu-item, .section-contact > *"
+    ".section-head, .about-body, .stats-grid, .timeline-item, .project-card, .skill-group, .edu-item, .section-contact > *"
   );
 
   revealTargets.forEach(function (el) {

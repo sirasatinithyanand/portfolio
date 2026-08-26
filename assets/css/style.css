@@ -153,38 +153,89 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; bo
 
 .hero-visual { display: flex; justify-content: center; }
 
-/* ---- AI system panel: the hero's signature animated trace ---- */
-.ai-panel {
-  width: 100%; max-width: 520px; border: 1px solid var(--border); border-radius: var(--radius-lg);
-  background: var(--muted); padding: 26px 28px; transition: transform 0.2s var(--ease-out), border-color 0.2s ease;
+/* ---- System network: the hero's signature visual. Floats — no card, no border. ---- */
+:root {
+  --sys-blue: #2563eb;
+  --sys-violet: #7c3aed;
+  --sys-cyan: #06b6d4;
+  --sys-amber: #f59e0b;
 }
-.ai-panel:hover { transform: translateY(-2px); border-color: #d5d5d9; }
-.ai-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.ai-panel-title { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
-.ai-status { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; color: var(--ink-faint); white-space: nowrap; }
-.ai-status.is-processing { color: var(--accent); }
-.ai-panel-divider { height: 1px; background: var(--border); margin: 16px 0; }
 
-.ai-pipeline { display: flex; flex-direction: column; }
-.ai-node { padding: 4px 0; }
-.ai-node-row { display: flex; align-items: center; gap: 0.55rem; }
-.ai-node-dot { position: relative; width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink: 0; transition: background 200ms ease; }
-.ai-node.is-active .ai-node-dot { background: var(--accent); }
-.ai-node.is-done .ai-node-dot { background: transparent; }
-.ai-node.is-done .ai-node-dot::before { content: "\2713"; position: absolute; inset: -5px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--ink-faint); }
-.ai-node-label { font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-faint); transition: color 200ms ease; }
-.ai-node.is-active .ai-node-label { color: var(--accent); }
-.ai-node.is-done .ai-node-label { color: var(--ink-secondary); }
-.ai-node-value { margin: 0.3rem 0 0 1.15rem; font-size: 0.94rem; color: var(--ink-faint); opacity: 0; transform: translateY(4px); transition: opacity 220ms ease, transform 220ms ease, color 200ms ease; }
-.ai-node.is-active .ai-node-value, .ai-node.is-done .ai-node-value { opacity: 1; transform: translateY(0); }
-.ai-node.is-active .ai-node-value { color: var(--ink); font-weight: 500; }
-.ai-node.is-done .ai-node-value { color: var(--ink-secondary); }
+.network { position: relative; width: 100%; max-width: 480px; aspect-ratio: 480 / 500; }
 
-.ai-connector { width: 1px; height: 18px; margin: 0 0 0 3px; background: var(--border); transition: background 200ms ease; }
-.ai-connector.is-active { background: var(--accent); }
+.network-glow {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  filter: blur(60px); opacity: 0.55;
+  background:
+    radial-gradient(32% 30% at 30% 18%, rgba(6, 182, 212, 0.5), transparent 70%),
+    radial-gradient(34% 34% at 68% 52%, rgba(124, 58, 237, 0.4), transparent 70%),
+    radial-gradient(30% 28% at 42% 88%, rgba(37, 99, 235, 0.4), transparent 70%);
+  animation: glow-drift 16s ease-in-out infinite alternate;
+}
+@keyframes glow-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-2%, 2%, 0) scale(1.05); }
+}
+@media (prefers-reduced-motion: reduce) { .network-glow { animation: none; } }
+
+.network-status {
+  position: absolute; top: -34px; right: 0; z-index: 2;
+  font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600; color: var(--ink-faint); white-space: nowrap;
+}
+.network-status.is-processing { color: var(--ink-secondary); }
+
+.network-svg { position: relative; z-index: 1; width: 100%; height: 100%; overflow: visible; }
+
+/* Edges: always visible at rest (so the diagram reads with zero JS), signal color flows through on activation */
+.edge {
+  fill: none; stroke: var(--ink-faint); stroke-width: 1.5; stroke-linecap: round;
+  opacity: 0.32; transition: opacity 350ms ease, stroke 300ms ease, stroke-width 300ms ease;
+}
+.edge.is-active { stroke: var(--signal-color, var(--sys-blue)); opacity: 1; stroke-width: 2.25; }
+.edge.is-settled { opacity: 0.45; stroke: var(--signal-color, var(--ink-faint)); stroke-width: 1.5; }
+
+.node circle { fill: var(--surface); stroke: var(--ink-faint); stroke-width: 1.5; transition: fill 200ms ease, stroke 200ms ease, r 300ms var(--ease-out); }
+.node text { font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.06em; fill: var(--ink-faint); transition: fill 200ms ease; }
+
+.node-peripheral.is-active circle { fill: var(--signal-color, var(--sys-cyan)); stroke: var(--signal-color, var(--sys-cyan)); }
+.node-peripheral.is-active text { fill: var(--ink); }
+
+.node-primary circle { stroke-width: 2; }
+.node-primary.is-active circle { fill: var(--signal-color, var(--sys-blue)); stroke: var(--signal-color, var(--sys-blue)); }
+.node-primary.is-done circle { fill: var(--surface); stroke: var(--ink-secondary); }
+
+.agent-ring { fill: none; stroke: var(--sys-violet); stroke-width: 1; opacity: 0; transition: opacity 300ms ease; }
+.node-agent.is-active .agent-ring { opacity: 0.35; }
+.node-agent circle:not(.agent-ring) { animation: agent-breathe 4.5s ease-in-out infinite; transform-origin: 240px 258px; }
+.node-agent.is-active circle:not(.agent-ring) { animation: agent-pulse 700ms var(--ease-out); }
+@keyframes agent-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.015); } }
+@keyframes agent-pulse { 0% { transform: scale(1); } 40% { transform: scale(1.08); } 100% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .node-agent circle:not(.agent-ring) { animation: none; } }
+
+/* HTML label overlay for the 5 primary nodes — real text renders cleaner than SVG at this size */
+.node-label {
+  position: absolute; left: 56%; transform: translateY(-50%); z-index: 2; max-width: 44%;
+}
+.node-label-agent { max-width: 40%; }
+.node-label-text {
+  display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-faint); transition: color 200ms ease;
+}
+.node-label-value {
+  margin: 0.3rem 0 0; font-size: 0.9rem; line-height: 1.35; color: var(--ink-faint);
+  opacity: 0; transform: translateY(4px); transition: opacity 220ms ease, transform 220ms ease, color 200ms ease;
+}
+[data-label].is-active .node-label-text { color: var(--signal-color, var(--sys-blue)); }
+[data-label].is-active .node-label-value { opacity: 1; transform: translateY(0); color: var(--ink); font-weight: 500; }
+[data-label].is-done .node-label-text { color: var(--ink-secondary); }
+[data-label].is-done .node-label-value { opacity: 1; transform: translateY(0); color: var(--ink-secondary); }
 
 @media (prefers-reduced-motion: reduce) {
-  .ai-node-dot, .ai-node-label, .ai-connector, .ai-node-value { transition: none; }
+  .edge, .node circle, .node text, .agent-ring, .node-label-text, .node-label-value { transition: none; }
+}
+
+@media (max-width: 1023px) {
+  .node-label-value { font-size: 0.86rem; }
 }
 
 /* ---- Selected work: featured / secondary / compact hierarchy ---- */

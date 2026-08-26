@@ -56,42 +56,67 @@
     </div>
 
     <div class="hero-visual">
-      <div class="ai-panel" aria-label="AI workflow trace: input, retrieval, reasoning, validation, response.">
-        <div class="ai-panel-head">
-          <span class="ai-panel-title">AI Workflow</span>
-          <span class="ai-status" data-status>&#9679; System ready</span>
+      <div class="network" aria-label="AI workflow visualization: input, retrieval from company data and regulatory sources, agent reasoning with tools and memory, validation, and a final response.">
+        <div class="network-glow" aria-hidden="true"></div>
+        <span class="network-status" data-status>&#9679; System ready</span>
+
+        <svg class="network-svg" viewBox="0 0 480 500" aria-hidden="true">
+          <g class="edges">
+            <path class="edge" data-edge="input-data" d="M240,30 L130,108"></path>
+            <path class="edge" data-edge="input-api" d="M240,30 L350,108"></path>
+            <path class="edge" data-edge="data-retrieve" d="M130,108 L240,170"></path>
+            <path class="edge" data-edge="api-retrieve" d="M350,108 L240,170"></path>
+            <path class="edge" data-edge="retrieve-agent" d="M240,178 L240,240"></path>
+            <path class="edge" data-edge="agent-tools" d="M240,276 L130,346"></path>
+            <path class="edge" data-edge="agent-memory" d="M240,276 L350,346"></path>
+            <path class="edge" data-edge="tools-validate" d="M130,346 L240,408"></path>
+            <path class="edge" data-edge="memory-validate" d="M350,346 L240,408"></path>
+            <path class="edge" data-edge="validate-output" d="M240,416 L240,461"></path>
+          </g>
+
+          <g class="node node-peripheral" data-peripheral="data">
+            <circle cx="130" cy="108" r="6"></circle>
+            <text x="130" y="94" text-anchor="middle">DATA</text>
+          </g>
+          <g class="node node-peripheral" data-peripheral="api">
+            <circle cx="350" cy="108" r="6"></circle>
+            <text x="350" y="94" text-anchor="middle">API</text>
+          </g>
+          <g class="node node-peripheral" data-peripheral="tools">
+            <circle cx="130" cy="346" r="6"></circle>
+            <text x="130" y="368" text-anchor="middle">TOOLS</text>
+          </g>
+          <g class="node node-peripheral" data-peripheral="memory">
+            <circle cx="350" cy="346" r="6"></circle>
+            <text x="350" y="368" text-anchor="middle">MEMORY</text>
+          </g>
+
+          <g class="node node-primary" data-node="input"><circle cx="240" cy="30" r="7"></circle></g>
+          <g class="node node-primary" data-node="retrieve"><circle cx="240" cy="170" r="8"></circle></g>
+          <g class="node node-primary node-agent" data-node="agent"><circle class="agent-ring" cx="240" cy="258" r="26"></circle><circle cx="240" cy="258" r="18"></circle></g>
+          <g class="node node-primary" data-node="validate"><circle cx="240" cy="408" r="8"></circle></g>
+          <g class="node node-primary" data-node="output"><circle cx="240" cy="468" r="7"></circle></g>
+        </svg>
+
+        <div class="node-label" data-label="input" style="top:6%">
+          <span class="node-label-text">Input</span>
+          <p class="node-label-value">&ldquo;Assess venue risk&rdquo;</p>
         </div>
-        <div class="ai-panel-divider"></div>
-
-        <div class="ai-pipeline">
-          <div class="ai-node" data-node="input">
-            <div class="ai-node-row"><span class="ai-node-dot" aria-hidden="true"></span><span class="ai-node-label">Input</span></div>
-            <p class="ai-node-value">&ldquo;Assess venue risk&rdquo;</p>
-          </div>
-          <div class="ai-connector" aria-hidden="true"></div>
-
-          <div class="ai-node" data-node="retrieve">
-            <div class="ai-node-row"><span class="ai-node-dot" aria-hidden="true"></span><span class="ai-node-label">Retrieve</span></div>
-            <p class="ai-node-value">12 sources found</p>
-          </div>
-          <div class="ai-connector" aria-hidden="true"></div>
-
-          <div class="ai-node" data-node="reason">
-            <div class="ai-node-row"><span class="ai-node-dot" aria-hidden="true"></span><span class="ai-node-label">Reason</span></div>
-            <p class="ai-node-value">Risk agent active</p>
-          </div>
-          <div class="ai-connector" aria-hidden="true"></div>
-
-          <div class="ai-node" data-node="validate">
-            <div class="ai-node-row"><span class="ai-node-dot" aria-hidden="true"></span><span class="ai-node-label">Validate</span></div>
-            <p class="ai-node-value">Evidence grounded</p>
-          </div>
-          <div class="ai-connector" aria-hidden="true"></div>
-
-          <div class="ai-node" data-node="response">
-            <div class="ai-node-row"><span class="ai-node-dot" aria-hidden="true"></span><span class="ai-node-label">Response</span></div>
-            <p class="ai-node-value">Risk narrative generated</p>
-          </div>
+        <div class="node-label" data-label="retrieve" style="top:34%">
+          <span class="node-label-text">Retrieve</span>
+          <p class="node-label-value">12 sources found</p>
+        </div>
+        <div class="node-label node-label-agent" data-label="agent" style="top:51.6%">
+          <span class="node-label-text">Agent</span>
+          <p class="node-label-value">Risk agent active</p>
+        </div>
+        <div class="node-label" data-label="validate" style="top:81.6%">
+          <span class="node-label-text">Validate</span>
+          <p class="node-label-value">Evidence grounded</p>
+        </div>
+        <div class="node-label" data-label="output" style="top:93.6%">
+          <span class="node-label-text">Output</span>
+          <p class="node-label-value">Risk narrative generated</p>
         </div>
       </div>
     </div>

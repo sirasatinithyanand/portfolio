@@ -156,13 +156,31 @@
     }
   }
 
-  // ---- Hero AI workflow trace: a real system state machine, not decoration ----
-  var panel = document.querySelector(".ai-panel");
-  if (panel) {
-    var stageOrder = ["input", "retrieve", "reason", "validate", "response"];
-    var panelNodes = stageOrder.map(function (id) { return panel.querySelector('[data-node="' + id + '"]'); });
-    var panelConnectors = Array.prototype.slice.call(panel.querySelectorAll(".ai-connector"));
-    var statusEl = panel.querySelector("[data-status]");
+  // ---- Hero system network: a real state machine driving color-coded signal flow ----
+  var network = document.querySelector(".network");
+  if (network) {
+    var colorVar = {
+      blue: "var(--sys-blue)",
+      violet: "var(--sys-violet)",
+      cyan: "var(--sys-cyan)",
+      amber: "var(--sys-amber)"
+    };
+
+    var getNode = function (id) { return network.querySelector('[data-node="' + id + '"]'); };
+    var getLabel = function (id) { return network.querySelector('[data-label="' + id + '"]'); };
+    var getPeripheral = function (id) { return network.querySelector('[data-peripheral="' + id + '"]'); };
+    var getEdge = function (id) { return network.querySelector('[data-edge="' + id + '"]'); };
+    var statusEl = network.querySelector("[data-status]");
+
+    // Six phases, matching the spec's timeline: input -> retrieve -> agent -> tools -> validate -> output.
+    var phases = [
+      { node: "input", edges: [], peripherals: [], color: "blue" },
+      { node: "retrieve", edges: ["input-data", "input-api", "data-retrieve", "api-retrieve"], peripherals: ["data", "api"], color: "cyan" },
+      { node: "agent", edges: ["retrieve-agent"], peripherals: [], color: "violet" },
+      { node: null, edges: ["agent-tools", "agent-memory"], peripherals: ["tools", "memory"], color: "violet" },
+      { node: "validate", edges: ["tools-validate", "memory-validate"], peripherals: [], color: "amber" },
+      { node: "output", edges: ["validate-output"], peripherals: [], color: "blue" }
+    ];
 
     function setStatus(text, processing) {
       if (!statusEl) return;
@@ -170,46 +188,88 @@
       statusEl.classList.toggle("is-processing", !!processing);
     }
 
+    function settlePhase(phase) {
+      if (!phase) return;
+      if (phase.node) {
+        var n = getNode(phase.node);
+        var l = getLabel(phase.node);
+        if (n) { n.classList.remove("is-active"); n.classList.add("is-done"); }
+        if (l) { l.classList.remove("is-active"); l.classList.add("is-done"); }
+      }
+      phase.peripherals.forEach(function (id) {
+        var p = getPeripheral(id);
+        if (p) p.classList.remove("is-active");
+      });
+      phase.edges.forEach(function (id) {
+        var e = getEdge(id);
+        if (e) { e.classList.remove("is-active"); e.classList.add("is-settled"); }
+      });
+    }
+
+    function activatePhase(phase) {
+      var color = colorVar[phase.color] || colorVar.blue;
+      phase.edges.forEach(function (id) {
+        var e = getEdge(id);
+        if (e) { e.style.setProperty("--signal-color", color); e.classList.add("is-active"); }
+      });
+      phase.peripherals.forEach(function (id) {
+        var p = getPeripheral(id);
+        if (p) { p.style.setProperty("--signal-color", color); p.classList.add("is-active"); }
+      });
+      if (phase.node) {
+        var n = getNode(phase.node);
+        var l = getLabel(phase.node);
+        if (n) { n.style.setProperty("--signal-color", color); n.classList.add("is-active"); }
+        if (l) { l.style.setProperty("--signal-color", color); l.classList.add("is-active"); }
+      }
+    }
+
     function showFinalState() {
-      panelNodes.forEach(function (n) { n.classList.remove("is-active"); n.classList.add("is-done"); });
-      panelConnectors.forEach(function (c) { c.classList.remove("is-active"); });
+      phases.forEach(function (phase) {
+        activatePhase(phase);
+        settlePhase(phase);
+      });
       setStatus("System ready", false);
     }
 
     if (reduceMotion) {
       showFinalState();
     } else {
-      var stepMs = 900;
-      var pauseMs = 1300;
-      var index = -1;
+      var stepMs = 1000;
+      var pauseMs = 1400;
+      var phaseIndex = -1;
       var timerId = null;
 
       function advance() {
-        if (index >= 0) {
-          panelNodes[index].classList.remove("is-active");
-          panelNodes[index].classList.add("is-done");
-          if (index > 0) panelConnectors[index - 1].classList.remove("is-active");
-        }
-        index++;
+        if (phaseIndex >= 0) settlePhase(phases[phaseIndex]);
+        phaseIndex++;
 
-        if (index < panelNodes.length) {
-          if (index > 0) panelConnectors[index - 1].classList.add("is-active");
-          panelNodes[index].classList.add("is-active");
+        if (phaseIndex < phases.length) {
+          activatePhase(phases[phaseIndex]);
           setStatus("Processing", true);
           timerId = window.setTimeout(advance, stepMs);
         } else {
           setStatus("System ready", false);
           timerId = window.setTimeout(function () {
-            panelNodes.forEach(function (n) { n.classList.remove("is-active", "is-done"); });
-            panelConnectors.forEach(function (c) { c.classList.remove("is-active"); });
-            index = -1;
+            phases.forEach(function (phase) {
+              if (phase.node) {
+                var n = getNode(phase.node);
+                var l = getLabel(phase.node);
+                if (n) n.classList.remove("is-active", "is-done");
+                if (l) l.classList.remove("is-active", "is-done");
+              }
+              phase.edges.forEach(function (id) {
+                var e = getEdge(id);
+                if (e) e.classList.remove("is-active", "is-settled");
+              });
+            });
+            phaseIndex = -1;
             advance();
           }, pauseMs);
         }
       }
 
-      // Pause the trace when the hero isn't visible, resume when it is —
-      // no point running an animation loop no one can see.
+      // Pause the trace when the hero isn't visible — no point animating what no one can see.
       if ("IntersectionObserver" in window) {
         var heroObserver = new IntersectionObserver(
           function (entries) {
@@ -224,7 +284,7 @@
           },
           { threshold: 0.2 }
         );
-        heroObserver.observe(panel);
+        heroObserver.observe(network);
       } else {
         advance();
       }

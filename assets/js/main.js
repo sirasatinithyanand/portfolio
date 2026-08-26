@@ -2,7 +2,6 @@
   "use strict";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var hasHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   // ---- Mobile nav toggle ----
   var toggle = document.getElementById("navToggle");
@@ -32,7 +31,7 @@
           header.classList.toggle("is-scrolled", !entry.isIntersecting);
         });
       },
-      { threshold: 0, rootMargin: "-68px 0px 0px 0px" }
+      { threshold: 0, rootMargin: "-52px 0px 0px 0px" }
     );
     headerObserver.observe(topSentinel);
   }
@@ -80,7 +79,7 @@
 
   // ---- Scroll reveal ----
   var revealTargets = document.querySelectorAll(
-    ".chapter-rule, .section-head, .about-body, .stats-grid, .timeline-item, .project-card, .skill-group, .edu-item, .section-contact > *"
+    ".section-head, .about-body, .stat-cell, .timeline-item, .project-card, .skill-group, .edu-item, .section-contact > *"
   );
 
   revealTargets.forEach(function (el) {
@@ -165,48 +164,6 @@
     } else {
       statEls.forEach(animateCount);
     }
-  }
-
-  // ---- Spotlight-border project cards (cursor-tracked glow) ----
-  if (hasHover && !reduceMotion) {
-    document.querySelectorAll(".project-card").forEach(function (card) {
-      card.addEventListener("mousemove", function (e) {
-        var rect = card.getBoundingClientRect();
-        card.style.setProperty("--mx", ((e.clientX - rect.left) / rect.width) * 100 + "%");
-        card.style.setProperty("--my", ((e.clientY - rect.top) / rect.height) * 100 + "%");
-      });
-    });
-  }
-
-  // ---- Tilt on the hero code card ----
-  var tiltEl = document.querySelector("[data-tilt]");
-  if (tiltEl && hasHover && !reduceMotion) {
-    var tiltParent = tiltEl.closest(".hero-visual") || tiltEl.parentElement;
-    tiltParent.addEventListener("mousemove", function (e) {
-      var rect = tiltEl.getBoundingClientRect();
-      var px = (e.clientX - rect.left) / rect.width - 0.5;
-      var py = (e.clientY - rect.top) / rect.height - 0.5;
-      tiltEl.style.transform =
-        "rotateX(" + (-py * 14 + 6) + "deg) rotateY(" + (px * 16 - 10) + "deg)";
-    });
-    tiltParent.addEventListener("mouseleave", function () {
-      tiltEl.style.transform = "rotateX(6deg) rotateY(-10deg)";
-    });
-  }
-
-  // ---- Magnetic-lite buttons ----
-  if (hasHover && !reduceMotion) {
-    document.querySelectorAll("[data-magnetic]").forEach(function (btn) {
-      btn.addEventListener("mousemove", function (e) {
-        var rect = btn.getBoundingClientRect();
-        var px = (e.clientX - rect.left) / rect.width - 0.5;
-        var py = (e.clientY - rect.top) / rect.height - 0.5;
-        btn.style.transform = "translate(" + (px * 8) + "px, " + (py * 8) + "px)";
-      });
-      btn.addEventListener("mouseleave", function () {
-        btn.style.transform = "translate(0, 0)";
-      });
-    });
   }
 
   // ---- Project gallery arrow controls ----

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nithyananda Rao | AI Developer &amp; Backend Engineer</title>
 <meta name="description" content="Nithyananda Rao is an AI Developer and backend engineer in Sydney, building LLM pipelines, agentic workflows, and production backend systems.">
-<meta name="theme-color" content="#0e0e0d">
+<meta name="theme-color" content="#ffffff">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nithyananda Rao | AI Developer & Backend Engineer">
@@ -15,7 +15,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -44,28 +44,25 @@
 
 <main id="main">
 
-  <!-- HERO (pinned: the About chapter slides up and covers it) -->
-  <div class="hero-pin-wrap chapter-dark">
-    <section class="hero wrap" id="hero">
-      <div class="mesh" aria-hidden="true"></div>
-
-      <div class="hero-copy">
-        <p class="hero-kicker">Sydney, Australia &middot; Open to new problems</p>
-        <h1 class="split-words">AI Developer &amp; Backend Engineer building systems that ship.</h1>
-        <p class="hero-sub">I build AI systems that actually work in production: LLM pipelines, agentic workflows, and the backend infrastructure to make them scale.</p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary" data-magnetic>View projects</a>
-          <a href="#contact" class="btn btn-ghost">Get in touch</a>
-        </div>
+  <!-- HERO (light — Apple's pages open light, not dark) -->
+  <section class="hero wrap tile-light" id="hero">
+    <div class="hero-copy">
+      <p class="hero-kicker">Sydney, Australia &middot; Open to new problems</p>
+      <h1 class="split-words">AI Developer &amp; Backend Engineer building systems that ship.</h1>
+      <p class="hero-sub">I build AI systems that actually work in production: LLM pipelines, agentic workflows, and the backend infrastructure to make them scale.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View projects</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
       </div>
+    </div>
 
-      <div class="hero-visual" aria-hidden="true">
-        <div class="code-card" data-tilt>
-          <div class="code-card-bar">
-            <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
-            <span class="code-card-title">agent.py</span>
-          </div>
-          <pre class="code-card-body"><code><span class="tok-kw">class</span> <span class="tok-cls">RiskAgent</span>:
+    <div class="hero-visual" aria-hidden="true">
+      <div class="code-card">
+        <div class="code-card-bar">
+          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+          <span class="code-card-title">agent.py</span>
+        </div>
+        <pre class="code-card-body"><code><span class="tok-kw">class</span> <span class="tok-cls">RiskAgent</span>:
     <span class="tok-kw">def</span> <span class="tok-fn">assess</span>(<span class="tok-var">self</span>, venue):
         facts = self.retrieve(venue)
         risk = self.llm.reason(facts)
@@ -75,33 +72,29 @@
         )
 
 <span class="tok-cmt"># 5s to a regulator-ready narrative</span>
-<span class="tok-prompt">$</span> <span class="typewriter" style="--chw:26ch">agent.assess(<span class="tok-str">"venue_442"</span>)</span>
-<span class="typewriter line-2" style="--chw:29ch"><span class="tok-out">narrative generated in 4.8s</span></span><span class="cursor-blink">_</span></code></pre>
-        </div>
-        <div class="pin pin-1"><span class="pin-dot"></span><span class="pin-label">Tool-calling reasoning</span></div>
-        <div class="pin pin-2"><span class="pin-dot"></span><span class="pin-label">Structured output</span></div>
+<span class="tok-prompt">$</span> agent.assess(<span class="tok-str">"venue_442"</span>)
+<span class="tok-out">narrative generated in 4.8s</span><span class="cursor-blink">_</span></code></pre>
       </div>
-    </section>
-  </div>
+      <div class="pin pin-1"><span class="pin-dot"></span><span class="pin-label">Tool-calling reasoning</span></div>
+      <div class="pin pin-2"><span class="pin-dot"></span><span class="pin-label">Structured output</span></div>
+    </div>
+  </section>
 
   <!-- ABOUT -->
-  <section class="section chapter-light" id="about">
-    <div class="chapter-rule" aria-hidden="true"></div>
+  <section class="section tile-dark" id="about">
     <div class="wrap">
       <div class="section-head">
         <h2>About</h2>
       </div>
       <div class="about-body">
-        <p>I'm Nithya, an AI Developer and backend engineer currently working at <strong>Arctic Intelligence</strong> in Sydney, building AI-powered tools for financial crime compliance. I'm also pursuing a Master of Information Technology (AI specialisation) at UNSW Sydney, graduating December 2027.</p>
-        <p>Before this, I spent close to two years building and shipping AI systems in production across two startups: a US-based cybersecurity SaaS (<strong>ConnectSecure</strong>) and a fintech startup (<strong>ChangeJar Technologies</strong>). I've worked on everything from LLM-powered reporting platforms and embedding-based search systems to high-throughput APIs and compliance automation pipelines.</p>
-        <p>I enjoy the end-to-end stuff, not just the model, but the APIs, the pipelines, the deployment, and making it actually work for real users. I care about building things that are reliable, scalable, and genuinely useful.</p>
+        <p>I'm Nithya, an AI Developer at <strong>Arctic Intelligence</strong> in Sydney, building AI-powered tools for financial crime compliance. Before this, I spent two years shipping AI systems in production at <strong>ConnectSecure</strong> and <strong>ChangeJar Technologies</strong>.</p>
+        <p>I care about the full stack, not just the model: the APIs, the pipelines, the deployment. Building things that are reliable and actually used.</p>
       </div>
     </div>
   </section>
 
   <!-- STATS -->
-  <section class="section chapter-dark" id="stats">
-    <div class="chapter-rule" aria-hidden="true"></div>
+  <section class="section tile-light" id="stats">
     <div class="wrap">
       <div class="stats-grid">
         <div class="stat-cell">
@@ -125,8 +118,7 @@
   </section>
 
   <!-- EXPERIENCE -->
-  <section class="section chapter-light" id="experience">
-    <div class="chapter-rule" aria-hidden="true"></div>
+  <section class="section tile-dark" id="experience">
     <div class="wrap">
       <div class="section-head">
         <h2>Experience</h2>
@@ -143,8 +135,7 @@
               <p class="timeline-sub">Financial Crimes Consulting Pty Ltd, Sydney, Australia</p>
               <ul>
                 <li>Building AI-powered features for the platform's next-generation product, working directly with the AI Development Lead</li>
-                <li>Designing LLM workflows for compliance automation, risk narrative generation, and knowledge retrieval</li>
-                <li>Working across the full stack: Python backend, API integrations, and AI pipeline infrastructure</li>
+                <li>Designing LLM workflows for compliance automation and knowledge retrieval</li>
               </ul>
             </div>
           </li>
@@ -157,10 +148,8 @@
               <h3>Software Development Engineer <span class="timeline-org">&middot; ConnectSecure</span></h3>
               <p class="timeline-sub">US-based cybersecurity SaaS, Remote</p>
               <ul>
-                <li>Designed and delivered the company's first AI-powered reporting platform, an async LLM pipeline with structured output validation, reducing onboarding effort by 40%</li>
-                <li>Built an embedding-based database migration tool with semantic search across heterogeneous schemas, cutting manual mapping effort by 70% at enterprise scale</li>
-                <li>Engineered an automated compliance analysis pipeline using LLM-based insight generation, cutting analyst reporting time by 50 to 60%</li>
-                <li>Designed and maintained secure multi-tenant REST APIs deployed at scale, supporting live enterprise deployments</li>
+                <li>Designed and delivered the company's first AI-powered reporting platform, an async LLM pipeline with structured output validation</li>
+                <li>Built an embedding-based database migration tool with semantic search across heterogeneous schemas</li>
               </ul>
             </div>
           </li>
@@ -174,8 +163,7 @@
               <p class="timeline-sub">Fintech startup, Bengaluru, India</p>
               <ul>
                 <li>Shipped a referral backend system that increased user acquisition by 30% and cut acquisition cost by 50%</li>
-                <li>Built analytics-driven backend services and internal automation tools for payout tracking</li>
-                <li>Improved user retention by 25% through optimised onboarding backend features</li>
+                <li>Built analytics-driven backend services for payout tracking</li>
               </ul>
             </div>
           </li>
@@ -184,9 +172,8 @@
     </div>
   </section>
 
-  <!-- PROJECTS: horizontal scroll-snap gallery -->
-  <section class="section chapter-dark" id="projects">
-    <div class="chapter-rule" aria-hidden="true"></div>
+  <!-- PROJECTS: horizontal gallery, Clay's saturated color-cycling cards -->
+  <section class="section tile-light" id="projects">
     <div class="wrap">
       <div class="gallery-head">
         <div class="section-head" style="margin-bottom:0;">
@@ -204,11 +191,10 @@
         <article class="project-card project-card-feature">
           <div class="project-body">
             <h3>FinAgent <span class="project-sub">&middot; NVIDIA Agentic AI Hackathon</span></h3>
-            <p>Built at the Cognitivo &times; NVIDIA Mockathon (Stone &amp; Chalk, Sydney), run in collaboration with NVIDIA, Anthropic, and LangChain for 40 enterprise engineers.</p>
+            <p>Built at the Cognitivo &times; NVIDIA Mockathon, run with NVIDIA, Anthropic, and LangChain for 40 enterprise engineers.</p>
             <ul class="project-points">
               <li>Evidence-grounded financial market strategy agent using LangGraph</li>
               <li>Agent-vs-agent format: competed in a round-robin evaluation</li>
-              <li>Built on NVIDIA Gigabyte AI Top Atom hardware</li>
             </ul>
           </div>
           <div class="project-foot">
@@ -238,7 +224,7 @@
         <article class="project-card">
           <div class="project-body">
             <h3>TeachMap <span class="project-sub">&middot; AI Curriculum Builder</span></h3>
-            <p>Full-stack platform with live web scraping via Gemini and Google Search, real-time adaptive feedback for lecture content, and an interactive world map of university curricula.</p>
+            <p>Full-stack platform with live web scraping, real-time adaptive feedback, and an interactive world map of university curricula.</p>
             <ul class="project-points">
               <li>Owned end-to-end architecture and deployment</li>
             </ul>
@@ -282,8 +268,7 @@
   </section>
 
   <!-- SKILLS -->
-  <section class="section chapter-light" id="skills">
-    <div class="chapter-rule" aria-hidden="true"></div>
+  <section class="section tile-dark" id="skills">
     <div class="wrap">
       <div class="section-head">
         <h2>Skills</h2>
@@ -312,41 +297,33 @@
         <div class="skill-group">
           <h3>AI &amp; Generative AI</h3>
           <ul class="tag-list tag-list-mono">
-            <li>LLM APIs</li><li>OpenAI</li><li>Claude</li><li>Gemini</li><li>Groq</li>
-            <li>LangChain</li><li>LangGraph</li><li>RAG</li><li>Embedding Search</li>
-            <li>Agentic Workflows</li><li>Tool Calling</li><li>FAISS</li><li>Pinecone</li>
-            <li>Prompt Engineering</li><li>MCP</li>
+            <li>LLM APIs</li><li>LangChain</li><li>LangGraph</li><li>RAG</li><li>Agentic Workflows</li><li>MCP</li>
           </ul>
         </div>
         <div class="skill-group">
           <h3>Backend &amp; Systems</h3>
           <ul class="tag-list tag-list-mono">
-            <li>Python</li><li>Java</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>C++</li>
-            <li>FastAPI</li><li>Spring Boot</li><li>REST APIs</li>
-            <li>Async Processing</li><li>Microservices</li><li>System Design</li><li>Distributed Systems</li>
+            <li>Python</li><li>Java</li><li>TypeScript</li><li>FastAPI</li><li>Spring Boot</li><li>System Design</li>
           </ul>
         </div>
         <div class="skill-group">
           <h3>Databases</h3>
           <ul class="tag-list tag-list-mono">
             <li>PostgreSQL</li><li>MongoDB</li><li>Supabase</li>
-            <li>Query Optimisation</li><li>Indexing</li><li>Schema Design</li>
           </ul>
         </div>
         <div class="skill-group">
           <h3>Infrastructure &amp; Frontend</h3>
           <ul class="tag-list tag-list-mono">
-            <li>Docker</li><li>Git</li><li>CI/CD</li><li>Linux</li><li>Jenkins</li>
-            <li>Next.js 14</li><li>React</li><li>Tailwind CSS</li>
+            <li>Docker</li><li>CI/CD</li><li>Next.js 14</li><li>React</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EDUCATION + LEADERSHIP -->
-  <section class="section chapter-light" id="education">
-    <div class="chapter-rule" aria-hidden="true"></div>
+  <!-- EDUCATION + LEADERSHIP (dark-2: a micro-step lighter than Skills, per Apple's technique for two adjacent dark tiles) -->
+  <section class="section tile-dark-2" id="education">
     <div class="wrap education-grid">
       <div class="section-head">
         <h2>Education &amp; Leadership</h2>
@@ -360,8 +337,7 @@
           </div>
           <p class="timeline-sub">University of New South Wales (UNSW), Sydney</p>
           <ul>
-            <li>Projects Director, UNSW Artificial Intelligence Society: leading student AI projects across reinforcement learning and AI-powered 3D campus mapping</li>
-            <li>Relevant coursework: AI, Data Structures &amp; Algorithms, Computer Networks, Database Management Systems</li>
+            <li>Projects Director, UNSW AI Society: leading student projects in reinforcement learning and AI-powered 3D campus mapping</li>
           </ul>
         </div>
 
@@ -378,28 +354,27 @@
             <h3>Hackathon Coach &amp; Organiser <span class="project-sub">&middot; Cognitivo &times; NVIDIA</span></h3>
             <span class="edu-date">Jul 2026</span>
           </div>
-          <p>Invited by Cognitivo founder Alan Hsiao to help organise and coach a 3-day enterprise AI training and hackathon ($1,500/person, 40 attendees). Designed the Day 1 training task on agentic AI and API integration, alongside trainers from NVIDIA, Anthropic, and LangChain.</p>
+          <p>Invited by Cognitivo founder Alan Hsiao to coach a 3-day enterprise AI hackathon, designing the Day 1 training task on agentic AI and API integration.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT (closing bookend chapter) -->
-  <section class="section section-contact chapter-dark" id="contact">
-    <div class="chapter-rule" aria-hidden="true"></div>
+  <!-- CONTACT — light/parchment closing. Apple and Clay both explicitly avoid a dark footer. -->
+  <section class="section section-contact tile-parchment" id="contact">
     <div class="wrap">
       <p class="eyebrow">Get in touch</p>
       <h2 class="split-words">Let's build something worth shipping.</h2>
       <p class="contact-sub">Open to coffee chats, collaborations, and interesting problems in AI and backend engineering.</p>
 
       <div class="contact-links">
-        <a class="btn btn-primary" href="mailto:sirasatinithyanand@gmail.com" data-magnetic>sirasatinithyanand@gmail.com</a>
+        <a class="btn btn-primary" href="mailto:sirasatinithyanand@gmail.com">sirasatinithyanand@gmail.com</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/nithyananda-rao-96b572216" target="_blank" rel="noopener">LinkedIn &#8599;</a>
         <a class="btn btn-ghost" href="https://github.com/sirasatinithyanand" target="_blank" rel="noopener">GitHub &#8599;</a>
       </div>
 
       <div class="github-graph">
-        <img src="https://ghchart.rshah.org/8d88ff/sirasatinithyanand" alt="Nithyananda Rao's GitHub contribution activity" loading="lazy" width="721" height="112">
+        <img src="https://ghchart.rshah.org/0068d6/sirasatinithyanand" alt="Nithyananda Rao's GitHub contribution activity" loading="lazy" width="721" height="112">
       </div>
     </div>
   </section>

@@ -29,11 +29,11 @@
   --accent-rgb: 0, 104, 214;
 
   /* Clay palette — reserved for the Projects gallery only */
-  --clay-pink: #ff4d8b;
-  --clay-teal: #17342f;
-  --clay-lavender: #b9a5ee;
-  --clay-peach: #ffb37e;
-  --clay-ochre: #e7b84a;
+  /* One hue family with the accent blue, not an unrelated rainbow: blue -> teal -> indigo -> sky -> parchment. */
+  --clay-blue: #0a4fb0;
+  --clay-teal: #0d3a3f;
+  --clay-indigo: #4a55c4;
+  --clay-sky: #dbe6fb;
   --clay-cream: #f4efdd;
 
   --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Archivo", "Segoe UI", system-ui, sans-serif;
@@ -327,13 +327,12 @@ button:focus-visible {
 .project-card:hover { transform: translateY(-6px); }
 .project-card-feature { flex-basis: min(88vw, 460px); }
 
-/* Clay's 6-color cycle: pink -> teal -> lavender -> peach -> ochre -> cream, never repeating consecutively */
-.project-card:nth-of-type(6n+1) { background: var(--clay-pink); color: #fff; }
-.project-card:nth-of-type(6n+2) { background: var(--clay-teal); color: #fff; }
-.project-card:nth-of-type(6n+3) { background: var(--clay-lavender); color: #1d1d1f; }
-.project-card:nth-of-type(6n+4) { background: var(--clay-peach); color: #1d1d1f; }
-.project-card:nth-of-type(6n+5) { background: var(--clay-ochre); color: #1d1d1f; }
-.project-card:nth-of-type(6n+6) { background: var(--clay-cream); color: #1d1d1f; }
+/* Clay's card-cycling idea, kept in the site's own blue-accent family: blue -> teal -> indigo -> sky -> parchment */
+.project-card:nth-of-type(5n+1) { background: var(--clay-blue); color: #fff; }
+.project-card:nth-of-type(5n+2) { background: var(--clay-teal); color: #fff; }
+.project-card:nth-of-type(5n+3) { background: var(--clay-indigo); color: #fff; }
+.project-card:nth-of-type(5n+4) { background: var(--clay-sky); color: #1d1d1f; }
+.project-card:nth-of-type(5n+5) { background: var(--clay-cream); color: #1d1d1f; }
 
 .project-body h3 { font-size: 1.15rem; font-weight: 600; }
 .project-sub { opacity: 0.7; font-weight: 400; font-size: 0.88rem; }
@@ -346,7 +345,9 @@ button:focus-visible {
 
 .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .tag-list li { font-family: var(--font-mono); font-size: 0.74rem; background: rgba(0, 0, 0, 0.08); padding: 0.32rem 0.65rem; border-radius: 999px; }
-.project-card:nth-of-type(6n+1) .tag-list li, .project-card:nth-of-type(6n+2) .tag-list li { background: rgba(255, 255, 255, 0.16); }
+.project-card:nth-of-type(5n+1) .tag-list li,
+.project-card:nth-of-type(5n+2) .tag-list li,
+.project-card:nth-of-type(5n+3) .tag-list li { background: rgba(255, 255, 255, 0.16); }
 
 /* ---- Skills (marquee + reference grid) ---- */
 .marquee {
